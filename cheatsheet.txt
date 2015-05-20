@@ -1,0 +1,32 @@
+Start a new session:
+tmux new-session -s {session name}
+
+(prefix = <control - space>)
+
+Close a pane:
+prefix - x
+
+Fullscreen a pane:
+prefix - z
+
+New Window:
+prefix - c
+
+Rename Window:
+prefix - ,
+
+Install plugins with tmux plugin manager (tpm):
+1. add plugin to tmux.conf like this:
+set -g @tpm_plugins '           \
+  tmux-plugins/tpm              \
+  tmux-plugins/tmux-resurrect   \
+'
+2. then:
+prefix - I
+
+Deleting automatic session backups:
+rm -rf ~/.tmux/resurrect/*
+
+Reload tmux config:
+prefix - :
+:source-file ~/.tmux.conf
