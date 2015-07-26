@@ -38,7 +38,7 @@ set -g base-index 1
 # clock
 set-window-option -g clock-mode-colour colour64 #green
 
-set -g default-terminal "xterm-256color"
+set -g default-terminal "xterm-16color"
 # Fix escape time problem
 set -sg escape-time 0
 
