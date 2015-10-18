@@ -30,3 +30,6 @@ rm -rf ~/.tmux/resurrect/*
 Reload tmux config:
 prefix - :
 :source-file ~/.tmux.conf
+
+Uninstall plugins:
+prefix - alt - u
