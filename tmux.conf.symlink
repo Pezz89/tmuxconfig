@@ -92,12 +92,12 @@ set -g @resurrect-restore 'R'
 # Kill pane without a warning
 bind-key x kill-pane
 
-# Enable mouse in tmux
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
-
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M
+bind -t vi-copy    C-WheelUpPane   halfpage-up
+bind -t vi-copy    C-WheelDownPane halfpage-down
+bind -t emacs-copy C-WheelUpPane   halfpage-up
+bind -t emacs-copy C-WheelDownPane halfpage-down
 # ==================================
 # Resurrection settings
 # ==================================
@@ -120,7 +120,6 @@ set -g @tpm_plugins '              \
   tmux-plugins/tpm                 \
   tmux-plugins/tmux-sensible       \
   tmux-plugins/tmux-resurrect   \
-  tmux-plugins/tmux-continuum    \
 '
 
 # ==================================
