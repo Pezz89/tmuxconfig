@@ -92,12 +92,12 @@ set -g @resurrect-restore 'R'
 # Kill pane without a warning
 bind-key x kill-pane
 
-bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
-bind -n WheelDownPane select-pane -t= \;                 send-keys -M
-bind -t vi-copy    C-WheelUpPane   halfpage-up
-bind -t vi-copy    C-WheelDownPane halfpage-down
-bind -t emacs-copy C-WheelUpPane   halfpage-up
-bind -t emacs-copy C-WheelDownPane halfpage-down
+set-option -g mouse on
+# Start copy mode when scrolling up
+bind -n WheelUpPane copy-mode
+# Enable our custom option to exit copy mode when scrolling past bottom
+set-window-option -g exit-copy-past-bottom on
+
 # ==================================
 # Resurrection settings
 # ==================================
@@ -120,6 +120,7 @@ set -g @tpm_plugins '              \
   tmux-plugins/tpm                 \
   tmux-plugins/tmux-sensible       \
   tmux-plugins/tmux-resurrect   \
+  nhdaly/tmux-scroll-copy-mode \
 '
 
 # ==================================
