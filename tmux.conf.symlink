@@ -147,13 +147,15 @@ set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Split windows vertically with <control-space> j
-bind j split-window -v
-bind C-j split-window -v
+bind j split-window -v 
+bind C-j split-window -v -c "#{pane_current_path}"
 
 # Split windows horizontaly with <control-space> l
 bind l split-window -h
-bind C-l split-window -h
+bind C-l split-window -h -c "#{pane_current_path}"
 
+bind c new-window -c "#{pane_current_path}"
+bind C-c new-window -c "#{pane_current_path}"
 # Clear terminal
 #bind u send-keys clear
 bind -n C-a send-keys C-l \; run-shell "sleep .3s" \; clear-history
